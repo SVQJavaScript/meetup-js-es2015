@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS.now - Road to ES6</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,700|Source+Sans+Pro:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+<body>
+  <main class="slideshow">
+    <!-- <section></section> -->
+    <section>
+      <header class="big">
+        <h1>JS.now</h1>
+        <h2>Road to ES6</h2>
+      </header>
+    </section>
+    <section>
+      <header><h3><em>ES¿qué?</em></h3></header>
+      <article>
+        <p>ES6 es la sexta revision (la quinta publicada) de <strong>ECMAScript</strong>, el lenguaje en el que se basa JavaScript, entre otros.</p>
+        <p>Oficialmente llamado <strong>ECMAScript 2015</strong>, se publicó en su versión definitiva en Junio de 2016.</p>
+        <p>La versión anterior, <strong>ES5</strong>, se presentó en Diciembre de 2009 y se revisó en Junio de 2011.</p>
+      </article>
+      <footer></footer>
+    </section>
+    <section>
+      <header><h3><em>ES¿qué?</em></h3></header>
+      <article>
+        <p>ES6 ofrece muchas mejoras necesarias para la magnitud que cada vez más está ganando JavaScript, como por ejemplo:</p>
+        <ul>
+          <li>Clases y módulos</li>
+          <li>Iteradores y generadores</li>
+          <li>Funciones "Flecha" <em>(Arrow functions)</em></li>
+          <li>Nuevos tipos de dato (octal, binario,...) y funciones matemáticas</li>
+          <li>Colecciones <em>(maps, sets, weak maps)</em></li>
+          <li>Mejoras en procesamiento asíncrono <em>(promise)</em></li>
+          <li>Otros agregador y mejoras de <strong>sintaxis</strong>...</li>
+        </ul>
+      </article>
+      <footer></footer>
+    </section>
+    <section>
+      <header><h3>¿Puedo usarlo ya?</h3></header>
+      <article class="columns-2">
+        <p>ES6 tiene un soporte bastante extendido, <em>aunque no completo</em>, en motores JS actuales, todo dependerá de quién tenga que ejecutar tu código.</p>
+        <p>Existen características de ES6 muy extendidas que soportan navegadores como Internet Explorer, y otras que ni siquiera Google Chrome las implementa aún.</p>
+        <p class="break-before">Soporte <em>muy muy simplificado</em>:</p>
+        <ul>
+          <li>Internet Explorer (v8 - v11): <span class="bad">✗</span></li>
+          <li>Microsoft Edge (v13+): <span class="good">✓</span></li>
+          <li>Google Chome (v52+) / Opera (v39+): <span class="good">✓</span></li>
+          <li>Mozilla Firefox (v50+): <span class="good">✓</span></li>
+          <li>Apple Safari (v10): <span class="good">✓</span></li>
+          <li>iOS browser (v9): <span class="moderate">⚠</span></li>
+          <li>Android browser (v4.4-): <span class="bad">✗</span>/<span class="moderate">⚠</span></li>
+          <li>Android (v5+ <em>Chrome webview</em>): <span class="good">✓</span></li>
+          <li>NodeJS (v6+): <span class="good">✓</span></li>
+          <li>KinomaXS (v6+): <span class="good">✓</span></li>
+        </ul>
+      </article>
+      <footer></footer>
+    </section>
+    <section>
+      <header><em>"Legacy browsers or ES6?, that's not the question"</em>, diría Shakespeare</header>
+      <article>
+        <p>Si tu proyecto tiene que soportar navegadores no tan actuales puedes apoyarte en librerías "traductoras de ES6" <em>(transpilers)</em> o en <em>Polyfills</em>.</p>
+        <p><strong>Librerías traductoras</strong>: permiten desarrollar sobre ES6, <em>compilando</em> el código original en código compatible con ES5 o anteriores. Como por ejemplo: <a href="https://babeljs.io/" target="_blank">Babel</a>.</p>
+        <p><strong>Polyfill</strong>: Ofrece una implementación de una característica de ES6 sobre ES5 o anteriores compatible a nivel API, <strong>sólo en caso de que el entorno de ejecución no la soporte</strong>. Algunos ejemplos: <a href="https://github.com/stefanpenner/es6-promise" target="_blank">ES6-Promise</a> (sólo para promise), <a href="https://github.com/zloirock/core-js" targer="_blank">Core-JS</a>.</p>
+      </article>
+      <footer></footer>
+    </section>
+    <section>
+      <header></header>
+      <article class="columns-2">
+        <img src="http://lorempixel.com/200/400/technics" />
+        <p>Quisque tellus felis, lacinia quis condimentum at, mollis vel nibh. Vivamus sit amet ligula accumsan, laoreet urna at, blandit massa. Nulla vel posuere lectus. Pellentesque in mauris feugiat, ullamcorper dolor eget, dictum lorem. Suspendisse quis quam quis libero pulvinar lacinia nec ac neque. Nunc ornare lacinia malesuada. Nulla ut rhoncus nibh. Integer eros mauris, efficitur eget dolor quis, dapibus semper leo.</p>
+        <p>Praesent lacinia mi scelerisque pretium cursus.</p>
+      </article>
+      <footer></footer>
+    </section>
+    <section>
+      <header></header>
+      <article class="">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum fringilla neque sed pretium. Ut pharetra lacus nec interdum tristique.</p>
+        <pre><code class="js">
+function init(){
+  currentSection = sections[0];
+  currentSection.classList.add('current');
+  sections.forEach(function(val,key){
+    if(key > 0)
+      val.classList.add('next');
+  });
+
+  document.addEventListener('keyup', _onkeypress);
+  document.getElementById('prevSlide')
+    .addEventListener('click', previous);
+  document.getElementById('nextSlide')
+    .addEventListener('click', next);
+}
+        </code></pre>
+      </article>
+      <footer></footer>
+    </section>
+  </main>
+  <nav>
+    <a href="#" id="prevSlide">Prev</a>
+    <a href="#" id="nextSlide">Next</a>
+  </nav>
+  <script src="js/highlight.pack.js"></script>
+  <script src="js/slideshow.js"></script>
+</body>
+</html>
