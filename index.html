@@ -72,6 +72,145 @@
       <footer></footer>
     </section>
     <section>
+      <header>Polyfills</header>
+      <article class="">
+        <p>El mecanismo para crear un polyfill es muy sencillo, sólo necesitas comprobar si la función está soportada en el entorno de ejecución actual y si no es así, declarar tu función compatible:</p>
+        <pre><code class="js">
+// String.prototype.trimStart
+if(String.prototype.trimStart === undefined){
+  String.prototype.trimStart = function(){
+    return this.replace(/^\s*/,'');
+  };
+}
+// versión corta
+''.trimStart || (String.prototype.trimStart = function(){
+    return this.replace(/^\s*/,'');
+});
+        </code></pre>
+      </article>
+      <footer></footer>
+    </section>
+    <section>
+      <header class="big">
+        <h1>Sintaxis</h1>
+        <h2>Algunas novedades</h2>
+      </header>
+    </section>
+    <section>
+      <header>Ámbito de bloque</header>
+      <article>
+        <p>La técnica más común para limitar el ámbito de una variable hasta ahora era el uso de las <strong>funciones anónimas inmediatamente invocadas</strong> también llamadas <em>IIFE (Inmediatly Invoked Function Expressions)</em></p>
+        <pre><code class="js">
+var a = 'Exterior';
+(function(){
+  var a = 'Interior';
+  console.log(a);
+})();
+console.log(a);
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Ámbito de bloque</header>
+      <article>
+        <p>Ahora podemos limitar el ámbito usando bloques mediante llaves <strong>{ ... }</strong> y la declaración de variables mediante <strong>let</strong>.</p>
+        <pre><code class="js">
+var a = 'Exterior';
+{
+  let a = 'Interior';
+  console.log(a);
+}
+console.log(a);
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Pecualiaridades de let</header>
+      <article>
+        <audio src="metal_gear-alert.mp3"></audio>
+        <p><strong>TDZ</strong> o <em>Temporal Dead Zone</em></p>
+        <pre><code class="js">
+console.log(a);
+var a = 'Exterior';
+        </code></pre>
+        <pre><code class="js">
+{
+  console.log(a); // Reference Error
+  let a = 'Interior';
+}
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Bucles for con let</header>
+      <article>
+        <p>La declaración de la variable a iterar con <strong>let</strong> permite disponer de una variable redeclarada para cada iteración dentro del bloque.</p>
+        <pre><code class="js">
+var funcs = [];
+for (let i = 0; i < 5; i++) {
+  funcs.push( function(){
+    console.log( i );
+  } );
+}
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Constantes</header>
+      <article>
+        <p>Una constante no es más que una variable a la que sólo se puede establecer su valor en su declaración. En caso de querer modificarse lanzará una excepción.</p>
+        <pre><code class="js">
+const a = 10;
+a = 11;
+        </code></pre>
+        <p>Pero si es de un tipo "complejo", sí es posible modificar su contenido (aunque no esté recomendado).</p>
+        <pre><code class="js">
+const a = [1,2,3];
+a.push(4);
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Funciones dentro bloques</header>
+      <article>
+        <p>Como con let, podemos declarar funciones accesibles sólo desde dentro del bloque.</p>
+        <pre><code class="js">
+'use strict';
+{
+  saludo();
+
+  function saludo(){
+    console.log('hola!');
+  }
+}
+
+saludo();
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Funciones dentro bloques</header>
+      <article>
+        <audio src="metal_gear-alert.mp3"></audio>
+        <p>Hay que tener cuidado si estamos acostumbrados a escribir funciones de esta forma:</p>
+        <pre><code class="js">
+'use strict';
+let foo = 'nope';
+if(foo === 'bar'){
+  function test(){
+    console.log('Test para bar');
+  }
+}else{
+  function test(){
+    console.log('Test para otra cosa');
+  }
+}
+
+test();
+        </code></pre>
+      </article>
+    </section>
+    <section>
       <header></header>
       <article class="columns-2">
         <img src="http://lorempixel.com/200/400/technics" />

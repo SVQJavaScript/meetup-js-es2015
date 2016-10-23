@@ -25,6 +25,12 @@
       nextSection.className = 'current';
       currentSection = nextSection;
     }
+    var audio = currentSection.getElementsByTagName('audio');
+    if(audio.length > 0){
+      setTimeout(function(){
+        audio[0].play();
+      },1000);
+    }
   }
 
   function previous(){
