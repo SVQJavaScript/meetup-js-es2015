@@ -16,7 +16,7 @@
         <h2>Road to ES6</h2>
       </header>
     </section>
-    <section>
+    <!-- <section>
       <header><h3><em>ES¿qué?</em></h3></header>
       <article>
         <p>ES6 es la sexta revision (la quinta publicada) de <strong>ECMAScript</strong>, el lenguaje en el que se basa JavaScript, entre otros.</p>
@@ -210,35 +210,201 @@ test();
         </code></pre>
       </article>
     </section>
+
+
+    <section>
+      <header>Operador ...</header>
+      <article>
+        <p>Normalmente llamado operador de propagación (<strong>Spread</strong>) u operador <strong>Rest</strong> según dónde se encuentre.</p>
+        <pre><code class="js">
+// Spread
+var a = [1,2,3];
+console.log(a);
+console.log(...a);
+
+// Rest
+function logAll(...z){
+  console.log(z);
+}
+logAll(1,2,3,4,5,6,7,8,9,10);
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Operador ...</header>
+      <article>
+        <p>En realidad responde a la estandarización del objeto <em>arguments</em> que se mantenía por retrocompatibilidad pero no se recomendaba su uso intensivo.</p>
+        <p>La principal diferencia entre los parametros <em>rest</em> y el objeto <em>arguments</em> es que el primero sí es un array; mientras que el segundo es un objeto con algunas propiedades de array, como <em>length</em>.</p>
+        <pre><code class="js">
+function logAllArguments(){
+  console.log(arguments);
+}
+logAll(1,2,3,4,5,6,7,8,9,10);
+logAllArguments(1,2,3,4,5,6,7,8,9,10);
+        </code></pre>
+      </article>
+    </section>
+
+
+    <section>
+      <header>Valores por defecto en funciones</header>
+      <article>
+        <p>
+          Casi siempre hemos usado la fórmula
+          <pre><code class="js">
+variable = variable || 10;
+          </code></pre>
+          o las variantes
+          <pre><code class="js">
+// Para evitar que 0 se ignore
+variable = (variable !== undefined) ? variable : 10;
+          </code></pre>
+          o
+          <pre><code class="js">
+// Sólo detectar si se ha pasado parametro o no
+variable = (0 in arguments) ? variable : 10;
+          </code></pre>
+        </p>
+      </article>
+    </section>
+    <section>
+      <header>Valores por defecto en funciones</header>
+      <article>
+        <p>Ahora <em>por fin</em> podemos indicar un valor por defecto usando la fórmula</p>
+        <pre><code class="js">
+function suma(a = 10, b = 20){
+  return a + b;
+}
+suma(2,3);
+suma(8);
+suma();
+suma(undefined, 6);
+suma(null, 6);
+suma(,6);
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Valores por defecto en funciones</header>
+      <article>
+        <p>Además de valores estáticos, podemos usar expresiones para asignaciones por defecto</p>
+        <pre><code class="js">
+function cuadrado(x){
+  return x * x;
+}
+function sumaCuadrado(a = 5, b = cuadrado(a)){
+  return a + b;
+}
+sumaCuadrados(2);
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Peculiaridades en valores por defecto</header>
+      <article>
+        <audio src="metal_gear-alert.mp3"></audio>
+        <ul>
+          <li>
+            <p>Los parámetros tipo <strong>rest</strong> no pueden tener un valor por defecto</p>
+            <pre><code class="js">
+function test(...z = [1,2,3]){
+  console.log(z); // Unexpected token
+}
+test();
+            </code></pre>
+          </li>
+          <li>
+            <p>Tienen un ámbito propio reservando los nombres de los parámetros</p>
+            <pre><code class="js">
+var z = 9;
+function test(z = z + 1){
+  console.log(z);
+}
+test(); // Reference error
+            </code></pre>
+          </li>
+        </ul>
+      </article>
+    </section> -->
+
+
+    <section>
+      <header>Desestructuración</header>
+      <article>
+        <p>Permite asignar valores a distintas variables desde las posiciones de un array o las propiedades de un objeto. Muy útil para permitir devolver varios valores separados en variables desde la misma función.</p>
+        <pre><code class="js">
+function foo() {
+  return [1,2,3];
+}
+// Pre-ES6
+var tmp = foo(),
+    a = tmp[0], b = tmp[1], c = tmp[2];
+console.log(a, b, c); // 1 2 3
+
+// ES6
+var [x,y,z] = foo();
+console.log(x, y, z); // 1 2 3
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Desestructuración. Objetos.</header>
+      <article>
+        <audio src="metal_gear-alert.mp3"></audio>
+        <p>La función es muy similar usando objetos, pero ojo, <strong>la asignación está invertida</strong>.</p>
+        <pre><code class="js">
+function foo() {
+  return {a: 1, b: 2, c: 3};
+}
+var {a:x, b:y, c:z} = foo(); // propiedad del objeto: nombre de la variable
+console.log(x, y, z); // 1 2 3
+        </code></pre>
+        <p>También es válido para variables que ya existan.</p>
+        <pre><code class="js">
+var d,e,f;
+( {a:d, b:e, c:f} = foo() );
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header>Desestructuración. Objetos.</header>
+      <article>
+        <p>Cuando las variables y las propiedades a asignar tienen el mismo nombre, podemos abreviar la asignación:</p>
+        <pre><code class="js">
+function foo() {
+  return {a: 1, b: 2, c: 3};
+}
+var {a, b, c} = foo();
+console.log(a, b, c);
+        </code></pre>
+        <p>Esto puede aprovecharse de forma inversa para asignar propiedades a un objeto cuando estas se llamen igual que las variables a asignar.</p>
+        <pre><code class="js">
+var a = 1, b = 2, c = 3;
+var x = {a ,b, c};
+console.log(x);
+        </code></pre>
+      </article>
+    </section>
+    <!-- var arr = [ 40, 1, 5, 200 ]; -->
+    <!-- arr.sort((a,b)=>a-b);  // [ 1, 5, 40, 200 ] -->
+
+
+    <section>
+      <header>Mejoras en Objetos y Clases</header>
+      <article>
+        <p></p>
+        <pre><code class="js">
+
+        </code></pre>
+      </article>
+    </section>
+
     <section>
       <header></header>
       <article class="columns-2">
         <img src="http://lorempixel.com/200/400/technics" />
         <p>Quisque tellus felis, lacinia quis condimentum at, mollis vel nibh. Vivamus sit amet ligula accumsan, laoreet urna at, blandit massa. Nulla vel posuere lectus. Pellentesque in mauris feugiat, ullamcorper dolor eget, dictum lorem. Suspendisse quis quam quis libero pulvinar lacinia nec ac neque. Nunc ornare lacinia malesuada. Nulla ut rhoncus nibh. Integer eros mauris, efficitur eget dolor quis, dapibus semper leo.</p>
         <p>Praesent lacinia mi scelerisque pretium cursus.</p>
-      </article>
-      <footer></footer>
-    </section>
-    <section>
-      <header></header>
-      <article class="">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum fringilla neque sed pretium. Ut pharetra lacus nec interdum tristique.</p>
-        <pre><code class="js">
-function init(){
-  currentSection = sections[0];
-  currentSection.classList.add('current');
-  sections.forEach(function(val,key){
-    if(key > 0)
-      val.classList.add('next');
-  });
-
-  document.addEventListener('keyup', _onkeypress);
-  document.getElementById('prevSlide')
-    .addEventListener('click', previous);
-  document.getElementById('nextSlide')
-    .addEventListener('click', next);
-}
-        </code></pre>
       </article>
       <footer></footer>
     </section>
