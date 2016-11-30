@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>JS.now - Road to ES6</title>
+  <title>JS.now - Cómo aprovechar ES2015 hoy</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,700|Source+Sans+Pro:300,400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -13,13 +13,13 @@
     <section>
       <header class="big">
         <h1>JS.now</h1>
-        <h2>Road to ES6</h2>
+        <h2>Cómo aprovechar ES2015 hoy</h2>
       </header>
     </section>
     <!-- <section>
       <header><h3><em>ES¿qué?</em></h3></header>
       <article>
-        <p>ES6 es la sexta revision (la quinta publicada) de <strong>ECMAScript</strong>, el lenguaje en el que se basa JavaScript, entre otros.</p>
+        <p>ES2015 o ES6 es la sexta revision (la quinta publicada) de <strong>ECMAScript</strong>, el lenguaje en el que se basa JavaScript, entre otros.</p>
         <p>Oficialmente llamado <strong>ECMAScript 2015</strong>, se publicó en su versión definitiva en Junio de 2016.</p>
         <p>La versión anterior, <strong>ES5</strong>, se presentó en Diciembre de 2009 y se revisó en Junio de 2011.</p>
       </article>
@@ -28,7 +28,7 @@
     <section>
       <header><h3><em>ES¿qué?</em></h3></header>
       <article>
-        <p>ES6 ofrece muchas mejoras necesarias para la magnitud que cada vez más está ganando JavaScript, como por ejemplo:</p>
+        <p>ES2015 ofrece muchas mejoras necesarias para la magnitud que cada vez más está ganando JavaScript, como por ejemplo:</p>
         <ul>
           <li>Clases y módulos</li>
           <li>Iteradores y generadores</li>
@@ -44,8 +44,8 @@
     <section>
       <header><h3>¿Puedo usarlo ya?</h3></header>
       <article class="columns-2">
-        <p>ES6 tiene un soporte bastante extendido, <em>aunque no completo</em>, en motores JS actuales, todo dependerá de quién tenga que ejecutar tu código.</p>
-        <p>Existen características de ES6 muy extendidas que soportan navegadores como Internet Explorer, y otras que ni siquiera Google Chrome las implementa aún.</p>
+        <p>ES2015 tiene un soporte bastante extendido, <em>aunque no completo</em>, en motores JS actuales, todo dependerá de quién tenga que ejecutar tu código.</p>
+        <p>Existen características de ES2015 muy extendidas que soportan navegadores como Internet Explorer, y otras que ni siquiera Google Chrome las implementa aún.</p>
         <p class="break-before">Soporte <em>muy muy simplificado</em>:</p>
         <ul>
           <li>Internet Explorer (v8 - v11): <span class="bad">✗</span></li>
@@ -63,16 +63,16 @@
       <footer></footer>
     </section>
     <section>
-      <header><em>"Legacy browsers or ES6?, that's not the question"</em>, diría Shakespeare</header>
+      <header><h3><em>"Legacy browsers or ES2015?, that's not the question"</em>, diría Shakespeare</h3></header>
       <article>
-        <p>Si tu proyecto tiene que soportar navegadores no tan actuales puedes apoyarte en librerías "traductoras de ES6" <em>(transpilers)</em> o en <em>Polyfills</em>.</p>
-        <p><strong>Librerías traductoras</strong>: permiten desarrollar sobre ES6, <em>compilando</em> el código original en código compatible con ES5 o anteriores. Como por ejemplo: <a href="https://babeljs.io/" target="_blank">Babel</a>.</p>
-        <p><strong>Polyfill</strong>: Ofrece una implementación de una característica de ES6 sobre ES5 o anteriores compatible a nivel API, <strong>sólo en caso de que el entorno de ejecución no la soporte</strong>. Algunos ejemplos: <a href="https://github.com/stefanpenner/es6-promise" target="_blank">ES6-Promise</a> (sólo para promise), <a href="https://github.com/zloirock/core-js" targer="_blank">Core-JS</a>.</p>
+        <p>Si tu proyecto tiene que soportar navegadores no tan actuales puedes apoyarte en librerías "traductoras de ES2015" <em>(transpilers)</em> o en <em>Polyfills</em>.</p>
+        <p><strong>Librerías traductoras</strong>: permiten desarrollar sobre ES2015, <em>compilando</em> el código original en código compatible con ES5 o anteriores. Como por ejemplo: <a href="https://babeljs.io/" target="_blank">Babel</a>.</p>
+        <p><strong>Polyfill</strong>: Ofrece una implementación de una característica de ES2015 sobre ES5 o anteriores compatible a nivel API, <strong>sólo en caso de que el entorno de ejecución no la soporte</strong>. Algunos ejemplos: <a href="https://github.com/stefanpenner/es6-promise" target="_blank">ES6-Promise</a> (sólo para promise), <a href="https://github.com/zloirock/core-js" targer="_blank">Core-JS</a>.</p>
       </article>
       <footer></footer>
     </section>
     <section>
-      <header>Polyfills</header>
+      <header><h3>Polyfills</h3></header>
       <article class="">
         <p>El mecanismo para crear un polyfill es muy sencillo, sólo necesitas comprobar si la función está soportada en el entorno de ejecución actual y si no es así, declarar tu función compatible:</p>
         <pre><code class="js">
@@ -97,7 +97,7 @@ if(String.prototype.trimStart === undefined){
       </header>
     </section>
     <section>
-      <header>Ámbito de bloque</header>
+      <header><h3>Ámbito de bloque</h3></header>
       <article>
         <p>La técnica más común para limitar el ámbito de una variable hasta ahora era el uso de las <strong>funciones anónimas inmediatamente invocadas</strong> también llamadas <em>IIFE (Inmediatly Invoked Function Expressions)</em></p>
         <pre><code class="js">
@@ -111,7 +111,7 @@ console.log(a);
       </article>
     </section>
     <section>
-      <header>Ámbito de bloque</header>
+      <header><h3>Ámbito de bloque</h3></header>
       <article>
         <p>Ahora podemos limitar el ámbito usando bloques mediante llaves <strong>{ ... }</strong> y la declaración de variables mediante <strong>let</strong>.</p>
         <pre><code class="js">
@@ -125,7 +125,7 @@ console.log(a);
       </article>
     </section>
     <section>
-      <header>Pecualiaridades de let</header>
+      <header><h3>Pecualiaridades de let</h3></header>
       <article>
         <audio src="metal_gear-alert.mp3"></audio>
         <p><strong>TDZ</strong> o <em>Temporal Dead Zone</em></p>
@@ -142,7 +142,7 @@ var a = 'Exterior';
       </article>
     </section>
     <section>
-      <header>Bucles for con let</header>
+      <header><h3>Bucles for con let</h3></header>
       <article>
         <p>La declaración de la variable a iterar con <strong>let</strong> permite disponer de una variable redeclarada para cada iteración dentro del bloque.</p>
         <pre><code class="js">
@@ -156,7 +156,7 @@ for (let i = 0; i < 5; i++) {
       </article>
     </section>
     <section>
-      <header>Constantes</header>
+      <header><h3>Constantes</h3></header>
       <article>
         <p>Una constante no es más que una variable a la que sólo se puede establecer su valor en su declaración. En caso de querer modificarse lanzará una excepción.</p>
         <pre><code class="js">
@@ -171,7 +171,7 @@ a.push(4);
       </article>
     </section>
     <section>
-      <header>Funciones dentro bloques</header>
+      <header><h3>Funciones dentro bloques</h3></header>
       <article>
         <p>Como con let, podemos declarar funciones accesibles sólo desde dentro del bloque.</p>
         <pre><code class="js">
@@ -189,7 +189,7 @@ saludo();
       </article>
     </section>
     <section>
-      <header>Funciones dentro bloques</header>
+      <header><h3>Funciones dentro bloques</h3></header>
       <article>
         <audio src="metal_gear-alert.mp3"></audio>
         <p>Hay que tener cuidado si estamos acostumbrados a escribir funciones de esta forma:</p>
@@ -213,7 +213,7 @@ test();
 
 
     <section>
-      <header>Operador ...</header>
+      <header><h3>Operador ...</h3></header>
       <article>
         <p>Normalmente llamado operador de propagación (<strong>Spread</strong>) u operador <strong>Rest</strong> según dónde se encuentre.</p>
         <pre><code class="js">
@@ -231,7 +231,7 @@ logAll(1,2,3,4,5,6,7,8,9,10);
       </article>
     </section>
     <section>
-      <header>Operador ...</header>
+      <header><h3>Operador ...</h3></header>
       <article>
         <p>En realidad responde a la estandarización del objeto <em>arguments</em> que se mantenía por retrocompatibilidad pero no se recomendaba su uso intensivo.</p>
         <p>La principal diferencia entre los parametros <em>rest</em> y el objeto <em>arguments</em> es que el primero sí es un array; mientras que el segundo es un objeto con algunas propiedades de array, como <em>length</em>.</p>
@@ -247,7 +247,7 @@ logAllArguments(1,2,3,4,5,6,7,8,9,10);
 
 
     <section>
-      <header>Valores por defecto en funciones</header>
+      <header><h3>Valores por defecto en funciones</h3></header>
       <article>
         <p>
           Casi siempre hemos usado la fórmula
@@ -268,7 +268,7 @@ variable = (0 in arguments) ? variable : 10;
       </article>
     </section>
     <section>
-      <header>Valores por defecto en funciones</header>
+      <header><h3>Valores por defecto en funciones</h3></header>
       <article>
         <p>Ahora <em>por fin</em> podemos indicar un valor por defecto usando la fórmula</p>
         <pre><code class="js">
@@ -285,7 +285,7 @@ suma(,6);
       </article>
     </section>
     <section>
-      <header>Valores por defecto en funciones</header>
+      <header><h3>Valores por defecto en funciones</h3></header>
       <article>
         <p>Además de valores estáticos, podemos usar expresiones para asignaciones por defecto</p>
         <pre><code class="js">
@@ -300,7 +300,7 @@ sumaCuadrados(2);
       </article>
     </section>
     <section>
-      <header>Peculiaridades en valores por defecto</header>
+      <header><h3>Peculiaridades en valores por defecto</h3></header>
       <article>
         <audio src="metal_gear-alert.mp3"></audio>
         <ul>
@@ -325,30 +325,30 @@ test(); // Reference error
           </li>
         </ul>
       </article>
-    </section> -->
+    </section>
 
 
     <section>
-      <header>Desestructuración</header>
+      <header><h3>Desestructuración</h3></header>
       <article>
         <p>Permite asignar valores a distintas variables desde las posiciones de un array o las propiedades de un objeto. Muy útil para permitir devolver varios valores separados en variables desde la misma función.</p>
         <pre><code class="js">
 function foo() {
   return [1,2,3];
 }
-// Pre-ES6
+// Pre-ES2015
 var tmp = foo(),
     a = tmp[0], b = tmp[1], c = tmp[2];
 console.log(a, b, c); // 1 2 3
 
-// ES6
+// ES2015
 var [x,y,z] = foo();
 console.log(x, y, z); // 1 2 3
         </code></pre>
       </article>
     </section>
     <section>
-      <header>Desestructuración. Objetos.</header>
+      <header><h3>Desestructuración. Objetos.</h3></header>
       <article>
         <audio src="metal_gear-alert.mp3"></audio>
         <p>La función es muy similar usando objetos, pero ojo, <strong>la asignación está invertida</strong>.</p>
@@ -367,7 +367,7 @@ var d,e,f;
       </article>
     </section>
     <section>
-      <header>Desestructuración. Objetos.</header>
+      <header><h3>Desestructuración. Objetos.</h3></header>
       <article>
         <p>Cuando las variables y las propiedades a asignar tienen el mismo nombre, podemos abreviar la asignación:</p>
         <pre><code class="js">
@@ -384,17 +384,124 @@ var x = {a ,b, c};
 console.log(x);
         </code></pre>
       </article>
-    </section>
+    </section> -->
     <!-- var arr = [ 40, 1, 5, 200 ]; -->
     <!-- arr.sort((a,b)=>a-b);  // [ 1, 5, 40, 200 ] -->
 
 
     <section>
-      <header>Mejoras en Objetos y Clases</header>
+      <header><h3>Mejoras en Objetos. Métodos abreviados.</h3></header>
+      <article>
+        <p>En la definición de un método para un objeto solemos crear <strong>funciones anónimas</strong> que asignamos a una clave que le da nombre, pero ahora podemos usar una <strong>sintaxis abreviada</strong> para definirlas y dejar un código más limpio.</p>
+        <pre><code class="js">
+// Pre-ES2015
+var oldObj = {
+  myMethod: function() { console.log('Hola!'); }
+}
+
+// ES2015
+let newObj = {
+  myMethod() { console.log('Hola!'); }
+}
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header><h3>Mejoras en Objetos. Generadores.</h3></header>
       <article>
         <p></p>
         <pre><code class="js">
 
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header><h3>Mejoras en Objetos. Get y Set.</h3></header>
+      <article>
+        <p></p>
+        <pre><code class="js">
+
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header><h3>Mejoras en Objetos. Funciones flecha.</h3></header>
+      <article>
+        <p></p>
+        <pre><code class="js">
+
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header><h3>Mejoras en Objetos. Valores por defecto.</h3></header>
+      <article>
+        <p></p>
+        <pre><code class="js">
+
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header><h3>Mejoras en Objetos. Clases.</h3></header>
+      <article>
+        <p>Hasta ahora la creacion de <em>clases</em> era cuanto menos, poco ortodoxa</p>
+        <pre><code class="js">
+// Pre-ES2015 (una de las formas posibles)
+function MyClass(x, y) {
+  this.x = x;
+  this.y = y;
+}
+MyClass.prototype.doSomething = function() {
+  console.log("I did something");
+}
+
+let myObj = new MyClass(1,2);
+myObj.doSomething();
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header><h3>Mejoras en Objetos. Clases.</h3></header>
+      <article>
+        <p>Pero ahora podemos declararlas, <em>por fin</em>, como <strong>clases</strong> de una forma más parecida a otros lenguajes</p>
+        <pre><code class="js">
+// ES2015
+class MyNewClass {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  doSomething() {
+    console.log("I did something");
+  }
+}
+
+let myNewObj = new MyNewClass(1,2);
+myNewObj.doSomething();
+        </code></pre>
+      </article>
+    </section>
+    <section>
+      <header><h3>Mejoras en Objetos. Herencia.</h3></header>
+      <article>
+        <p>La herencia de clases se vuelve también más sencilla gracias a <strong>extends</strong> y <strong>super</strong>.</p>
+        <pre><code class="js">
+class ParentClass {
+  constructor(x) { this.x = x; }
+  operateX() { return this.x * this.x; }
+}
+
+class ChildClass extends ParentClass {
+  constructor(x,y) {
+    super(x);
+    this.y = y;
+  }
+  operateX() {
+    let tempX = super.operateX();
+    return tempX + this.y;
+  }
+}
         </code></pre>
       </article>
     </section>
