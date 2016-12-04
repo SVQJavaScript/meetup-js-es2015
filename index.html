@@ -16,7 +16,7 @@
         <h2>Cómo aprovechar ES2015 hoy</h2>
       </header>
     </section>
-    <!-- <section>
+    <section id="intro1">
       <header><h3><em>ES¿qué?</em></h3></header>
       <article>
         <p>ES2015 o ES6 es la sexta revision (la quinta publicada) de <strong>ECMAScript</strong>, el lenguaje en el que se basa JavaScript, entre otros.</p>
@@ -25,7 +25,7 @@
       </article>
       <footer></footer>
     </section>
-    <section>
+    <section id="intro2">
       <header><h3><em>ES¿qué?</em></h3></header>
       <article>
         <p>ES2015 ofrece muchas mejoras necesarias para la magnitud que cada vez más está ganando JavaScript, como por ejemplo:</p>
@@ -41,7 +41,7 @@
       </article>
       <footer></footer>
     </section>
-    <section>
+    <section id="intro3">
       <header><h3>¿Puedo usarlo ya?</h3></header>
       <article class="columns-2">
         <p>ES2015 tiene un soporte bastante extendido, <em>aunque no completo</em>, en motores JS actuales, todo dependerá de quién tenga que ejecutar tu código.</p>
@@ -62,7 +62,7 @@
       </article>
       <footer></footer>
     </section>
-    <section>
+    <section id="intro4">
       <header><h3><em>"Legacy browsers or ES2015?, that's not the question"</em>, diría Shakespeare</h3></header>
       <article>
         <p>Si tu proyecto tiene que soportar navegadores no tan actuales puedes apoyarte en librerías "traductoras de ES2015" <em>(transpilers)</em> o en <em>Polyfills</em>.</p>
@@ -71,7 +71,7 @@
       </article>
       <footer></footer>
     </section>
-    <section>
+    <section id="intro5">
       <header><h3>Polyfills</h3></header>
       <article class="">
         <p>El mecanismo para crear un polyfill es muy sencillo, sólo necesitas comprobar si la función está soportada en el entorno de ejecución actual y si no es así, declarar tu función compatible:</p>
@@ -90,13 +90,13 @@ if(String.prototype.trimStart === undefined){
       </article>
       <footer></footer>
     </section>
-    <section>
+    <section id="sintax">
       <header class="big">
         <h1>Sintaxis</h1>
         <h2>Algunas novedades</h2>
       </header>
     </section>
-    <section>
+    <section id="blockscope1">
       <header><h3>Ámbito de bloque</h3></header>
       <article>
         <p>La técnica más común para limitar el ámbito de una variable hasta ahora era el uso de las <strong>funciones anónimas inmediatamente invocadas</strong> también llamadas <em>IIFE (Inmediatly Invoked Function Expressions)</em></p>
@@ -110,7 +110,7 @@ console.log(a);
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="blockscope2">
       <header><h3>Ámbito de bloque</h3></header>
       <article>
         <p>Ahora podemos limitar el ámbito usando bloques mediante llaves <strong>{ ... }</strong> y la declaración de variables mediante <strong>let</strong>.</p>
@@ -124,7 +124,7 @@ console.log(a);
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="blockscope3">
       <header><h3>Pecualiaridades de let</h3></header>
       <article>
         <audio src="metal_gear-alert.mp3"></audio>
@@ -141,7 +141,7 @@ var a = 'Exterior';
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="blockscope4">
       <header><h3>Bucles for con let</h3></header>
       <article>
         <p>La declaración de la variable a iterar con <strong>let</strong> permite disponer de una variable redeclarada para cada iteración dentro del bloque.</p>
@@ -155,7 +155,7 @@ for (let i = 0; i < 5; i++) {
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="blockscope5">
       <header><h3>Constantes</h3></header>
       <article>
         <p>Una constante no es más que una variable a la que sólo se puede establecer su valor en su declaración. En caso de querer modificarse lanzará una excepción.</p>
@@ -170,7 +170,7 @@ a.push(4);
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="blockscope6">
       <header><h3>Funciones dentro bloques</h3></header>
       <article>
         <p>Como con let, podemos declarar funciones accesibles sólo desde dentro del bloque.</p>
@@ -188,7 +188,7 @@ saludo();
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="blockscope7">
       <header><h3>Funciones dentro bloques</h3></header>
       <article>
         <audio src="metal_gear-alert.mp3"></audio>
@@ -212,7 +212,22 @@ test();
     </section>
 
 
-    <section>
+    <section id="templates1">
+      <header><h3>Plantillas de texto</h3></header>
+      <article>
+        <p>La creación de textos con variables insertadas es una tarea que ya tenemos solucionada con la fea pero efectiva concatenación de variables y textos estáticos. Pero ahora podemos solucionarlo con un código más rápido de escribir y elegante mediante plantillas.</p>
+        <pre><code class="js">
+let username = "Pepe";
+// Pre-ES2015
+console.log("¡Hola " + username + "!");
+// ES2015
+console.log(`¡Hola ${username}!`);
+        </code></pre>
+      </article>
+    </section>
+
+
+    <section id="spread1">
       <header><h3>Operador ...</h3></header>
       <article>
         <p>Normalmente llamado operador de propagación (<strong>Spread</strong>) u operador <strong>Rest</strong> según dónde se encuentre.</p>
@@ -230,7 +245,7 @@ logAll(1,2,3,4,5,6,7,8,9,10);
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="spread2">
       <header><h3>Operador ...</h3></header>
       <article>
         <p>En realidad responde a la estandarización del objeto <em>arguments</em> que se mantenía por retrocompatibilidad pero no se recomendaba su uso intensivo.</p>
@@ -246,7 +261,7 @@ logAllArguments(1,2,3,4,5,6,7,8,9,10);
     </section>
 
 
-    <section>
+    <section id="default1">
       <header><h3>Valores por defecto en funciones</h3></header>
       <article>
         <p>
@@ -267,7 +282,7 @@ variable = (0 in arguments) ? variable : 10;
         </p>
       </article>
     </section>
-    <section>
+    <section id="default2">
       <header><h3>Valores por defecto en funciones</h3></header>
       <article>
         <p>Ahora <em>por fin</em> podemos indicar un valor por defecto usando la fórmula</p>
@@ -284,7 +299,7 @@ suma(,6);
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="default3">
       <header><h3>Valores por defecto en funciones</h3></header>
       <article>
         <p>Además de valores estáticos, podemos usar expresiones para asignaciones por defecto</p>
@@ -299,7 +314,7 @@ sumaCuadrados(2);
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="default4">
       <header><h3>Peculiaridades en valores por defecto</h3></header>
       <article>
         <audio src="metal_gear-alert.mp3"></audio>
@@ -328,7 +343,7 @@ test(); // Reference error
     </section>
 
 
-    <section>
+    <section id="destructuring1">
       <header><h3>Desestructuración</h3></header>
       <article>
         <p>Permite asignar valores a distintas variables desde las posiciones de un array o las propiedades de un objeto. Muy útil para permitir devolver varios valores separados en variables desde la misma función.</p>
@@ -347,7 +362,7 @@ console.log(x, y, z); // 1 2 3
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="destructuring2">
       <header><h3>Desestructuración. Objetos.</h3></header>
       <article>
         <audio src="metal_gear-alert.mp3"></audio>
@@ -366,7 +381,7 @@ var d,e,f;
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="destructuring3">
       <header><h3>Desestructuración. Objetos.</h3></header>
       <article>
         <p>Cuando las variables y las propiedades a asignar tienen el mismo nombre, podemos abreviar la asignación:</p>
@@ -384,12 +399,29 @@ var x = {a ,b, c};
 console.log(x);
         </code></pre>
       </article>
-    </section> -->
+    </section>
     <!-- var arr = [ 40, 1, 5, 200 ]; -->
     <!-- arr.sort((a,b)=>a-b);  // [ 1, 5, 40, 200 ] -->
 
+    <section id="loops1">
+      <header><h3>Bucles for ... of</h3></header>
+      <article>
+        <p>Uno de los bucles más deseados en JS, los que iteran sobre un array y devuelven directamente el elemento de cada posición.</p>
+        <p>Importante no confundirlo con el bucle for ... in, que devuelve el índice de cada posición.</p>
+        <pre><code class="js">
+var myArr = ['a','b','c','d','x','y','z'];
+for (let el of myArr) {
+  console.log(el);
+}
+for (let idx in myArr) {
+  console.log(idx);
+}
+        </code></pre>
+      </article>
+    </section>
 
-    <section>
+
+    <section id="objects1">
       <header><h3>Mejoras en Objetos. Métodos abreviados.</h3></header>
       <article>
         <p>En la definición de un método para un objeto solemos crear <strong>funciones anónimas</strong> que asignamos a una clave que le da nombre, pero ahora podemos usar una <strong>sintaxis abreviada</strong> para definirlas y dejar un código más limpio.</p>
@@ -406,43 +438,131 @@ let newObj = {
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="objects2">
       <header><h3>Mejoras en Objetos. Generadores.</h3></header>
       <article>
-        <p></p>
+        <p>Son funciones especiales que se usan para controlar iteraciones (de hecho los generadores son iteradores). Son similares a un array, pero estos pueden ser <u>ejecutados con parámetros</u> y <u>producen <strong>(yield)</strong> un valor con cada llamada</u>.</p>
         <pre><code class="js">
-
+function *fibonacci(){
+  let [prev, curr] = [0,1];
+  while (curr < 200) {
+    yield curr;
+    [prev, curr] = [curr, prev + curr];
+  }
+}
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="objects3">
       <header><h3>Mejoras en Objetos. Get y Set.</h3></header>
       <article>
-        <p></p>
+        <p>Un paso hacia conseguir objetos de uso similar al resto de lenguajes son los <strong>getters</strong> y los <strong>setters</strong>.</p>
+        <p>Disponible desde <strong>ES5</strong> pero bastante desconocido para la mayoría de los desarrolladores.</p>
         <pre><code class="js">
-
+var myObj = {
+  __val: 10,
+  get val() { return this.__val++; },
+  set val(v) { this.__val = v; }
+}
+myObj.val;    // 10
+myObj.val;    // 11
+myObj.val = 20;
+myObj.val;    // 20
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="objects4">
       <header><h3>Mejoras en Objetos. Funciones flecha.</h3></header>
       <article>
-        <p></p>
+        <p>Una importante mejora a las funciones anónimas dentro de objetos.</p>
+        <p>No sólo reducen el tamaño del código, sino que <strong>mantienen automáticamente el ámbito</strong> de variables donde fueron <strong>definidas</strong>.</p>
         <pre><code class="js">
-
+var btnController = {
+  getUrl(id) {
+    return `${this.baseURL}/${id}`;
+  },
+  init() {
+    var self = this; // <-- El hack de siempre
+    this.btnEl.addEventListener('click', function(event) {
+      utils.makeRequest( self.getUrl( self.btnEl.id ) );
+    });
+  }
+}
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="objects5">
+      <header><h3>Mejoras en Objetos. Funciones flecha.</h3></header>
+      <article>
+        <p>Aplicando funciones flecha (<em>arrow functions</em>) conseguimos prescindir de hacks o bindings de funciones facilitando el desarrollo.</p>
+        <p>Aún así, hay casos en los que no se puede aplicar, como en <strong>recursividad</strong>.</p>
+        <pre><code class="js">
+var btnController = {
+  getUrl(id) {
+    return `${this.baseURL}/${id}`;
+  },
+  init() {
+    this.btnEl.addEventListener('click', (event) => {
+      utils.makeRequest( this.getUrl( this.btnEl.id ) );
+    });
+  }
+}
+        </code></pre>
+      </article>
+    </section>
+    <section id="objects6">
       <header><h3>Mejoras en Objetos. Valores por defecto.</h3></header>
       <article>
-        <p></p>
+        <p>Otra tediosa tarea al tratar con funciones/métodos de objetos es controlar los valores por defecto cuando usamos objetos de configuración como parámetros, desvirtuando nuestro código a cosas como esta:</p>
         <pre><code class="js">
+function superConfigurableFunc(param, options = {}) {
+  let opt1 = options.opt1 || "defaultValue";
+  let opt2 = options.opt2 || 10;
+  let opt3 = options.opt3 || "defaultValue2";
+  let opt4 = options.opt4 || "defaultValue3";
+  let opt5 = options.opt5 || 200;
 
+  // ... Por fin, aquí nuestro código
+}
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="objects7">
+      <header><h3>Mejoras en Objetos. Valores por defecto.</h3></header>
+      <article>
+        <p>Lo primero a mejorar sería mejorar el aspecto y mantenibilidad de nuestros valores por defecto con un objeto:</p>
+        <pre><code class="js">
+function superConfigurableFunc(param, options = {}) {
+  let defaults = {
+    opt1: "defaultValue",
+    opt2: 10,
+    opt3: "defaultValue2",
+    opt4: "defaultValue3",
+    opt5: 200
+  }
+
+  // ...
+}
+        </code></pre>
+      </article>
+    </section>
+    <section id="objects8">
+      <header><h3>Mejoras en Objetos. Valores por defecto.</h3></header>
+      <article>
+        <p>Posteriormente, aplicaríamos los valores por defecto a nuestro objeto de opciones mediante el método <strong>Object.assign</strong>.</p>
+        <p>Este método permite tantos parámetros como necesitemos, aunque necesita al menos dos objetos; aplicando los valores del objeto más a la derecha al que tiene a su izquierda, hasta llegar al primero por la izquierda; y devolviendo el resultado.</p>
+        <pre><code class="js">
+function superConfigurableFunc(param, options = {}) {
+  let defaults = { ... }
+
+  let settings = Object.assign({}, defaults, options);
+
+  // ...
+}
+        </code></pre>
+      </article>
+    </section>
+    <section id="objects9">
       <header><h3>Mejoras en Objetos. Clases.</h3></header>
       <article>
         <p>Hasta ahora la creacion de <em>clases</em> era cuanto menos, poco ortodoxa</p>
@@ -461,7 +581,7 @@ myObj.doSomething();
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="objects10">
       <header><h3>Mejoras en Objetos. Clases.</h3></header>
       <article>
         <p>Pero ahora podemos declararlas, <em>por fin</em>, como <strong>clases</strong> de una forma más parecida a otros lenguajes</p>
@@ -482,7 +602,7 @@ myNewObj.doSomething();
         </code></pre>
       </article>
     </section>
-    <section>
+    <section id="objects11">
       <header><h3>Mejoras en Objetos. Herencia.</h3></header>
       <article>
         <p>La herencia de clases se vuelve también más sencilla gracias a <strong>extends</strong> y <strong>super</strong>.</p>
@@ -506,19 +626,122 @@ class ChildClass extends ParentClass {
       </article>
     </section>
 
-    <section>
-      <header></header>
-      <article class="columns-2">
-        <img src="http://lorempixel.com/200/400/technics" />
-        <p>Quisque tellus felis, lacinia quis condimentum at, mollis vel nibh. Vivamus sit amet ligula accumsan, laoreet urna at, blandit massa. Nulla vel posuere lectus. Pellentesque in mauris feugiat, ullamcorper dolor eget, dictum lorem. Suspendisse quis quam quis libero pulvinar lacinia nec ac neque. Nunc ornare lacinia malesuada. Nulla ut rhoncus nibh. Integer eros mauris, efficitur eget dolor quis, dapibus semper leo.</p>
-        <p>Praesent lacinia mi scelerisque pretium cursus.</p>
+    <section id="promises1">
+      <header><h3>El Infierno de los Callbacks</h3></header>
+      <article>
+        <p>La paradoja más conocida en JavaScript, los callbacks, es quizás la característica más potente y diferenciadora de este lenguaje; pero también es el <strong>Infierno de los Callbacks</strong> cuando necesitan anidarse en exceso.</p>
+        <p>Aquí es donde las promesas (<em>promises</em>) vienen a mejorar un poco nuestra vida, convirtiendo esto:</p>
+        <pre><code class="js">
+superWidgetWithCallbacks(param, function(error, result) {
+  if(error) { ... }
+  makeANetworkRequest(result, function(error, result) {
+    if(error) { ... }
+    doSomethingHeavyForRendering(result, function(error, result) {
+      if(error) { ... }
+      iFeelINeedAnotherNestedCallback(result, function(error, result) {
+        if(error) { ... }
+        // ...
+      });
+    });
+  });
+});</code></pre>
       </article>
-      <footer></footer>
+    </section>
+    <section id="promises2">
+      <header><h3>Promesas</h3></header>
+      <article>
+        <p>... en esto:</p>
+        <pre><code class="js">
+superWidgetWithCallbacks(param)
+  .then(makeANetworkRequest)
+  .then(doSomethingHeavyForRendering)
+  .then(iFeelINeedAnotherNestedCallback)
+  .catch(function(error) { ... });
+        </code></pre>
+        <p>Pero, <strong>¿qué es realmente una <em>promesa</em>?</strong></p>
+      </article>
+    </section>
+    <section id="promises3">
+      <header><h3>Promesas</h3></header>
+      <article>
+        <p><strong>¿Qué son las promesas?</strong></p>
+        <ul>
+          <li><u>No</u> son una sustitución incondicional de los callbacks.</li>
+          <li>Sí son una especie de contenedor que albergará el valor resultante de distintas operaciones asíncronas, una vez estas hayan terminado.</li>
+          <li>También son un elemento de control del flujo de ejecución de esas tareas.</li>
+        </ul>
+        <p>Este control lo tenemos gracias a las funciones <strong>resolve</strong> y <strong>reject</strong> que permiten controlar el <strong>estado de una promesa</strong> de <strong>Pendiente</strong> a <strong>Resuelta</strong> o <strong>Rechazada</strong>.</p>
+        <p class="center"><img src="img/promises.png"></p>
+      </article>
+    </section>
+    <section id="promises4">
+      <header><h3>Promesas</h3></header>
+      <article>
+        <p>Un ejemplo de creación de una promesa:</p>
+        <pre><code class="js">
+function get(url) {
+  return new Promise(function(resolve, reject) {
+    var req = new XMLHttpRequest();
+    req.open('GET', url);
+
+    req.onload = function() {
+      if (req.status == 200) {
+        resolve(req.response);
+      }
+      else {
+        reject(Error(req.statusText));
+      }
+    };
+
+    req.onerror = function() {
+      reject(Error("Network Error"));
+    };
+
+    req.send();
+  });
+}
+        </code></pre>
+      </article>
+    </section>
+    <section id="promises5">
+      <header><h3>Promesas</h3></header>
+      <article>
+        <h4>Promises.all</h4>
+        <p>Permiten lanzar juntas varias promesas y ejecutar el contenido de <em>then</em> cuando todas ellas han sido resueltas.</p>
+        <pre><code class="js">
+Promise.all([promise1, promise2]).then(function(results) { ... })
+.catch(function(error) { ... });
+        </code></pre>
+        <h4>Promises.race</h4>
+        <p>Similar a la anterior, pero ejecuta el contenido de <em>then</em> cuando la primera de ellas ha sido resuelta.</p>
+        <pre><code class="js">
+Promise.race([promise1, promise2]).then(function(results) { ... })
+.catch(function(error) { ... });
+        </code></pre>
+      </article>
+    </section>
+    <section id="questions">
+      <header class="big">
+        <h1>¿Preguntas?</h1>
+      </header>
+    </section>
+    <section id="outro">
+      <header class="big">
+        <h1>Gracias</h1>
+        <h2></h2>
+      </header>
+      <article class="columns-2">
+        <a href="https://meetup.com/Sevilla-js" target="_blank">Sevilla JS</a>
+        <a href="https://twitter.com/neokore" target="_blank">
+          <img src="https://pbs.twimg.com/profile_images/378800000340009281/e35d535f175465085f31eb63e10a2895_400x400.jpeg">
+          @neokore
+        </a>
+      </article>
     </section>
   </main>
   <nav>
-    <a href="#" id="prevSlide">Prev</a>
-    <a href="#" id="nextSlide">Next</a>
+    <a href="#" id="prevSlide"><</a>
+    <a href="#" id="nextSlide">></a>
   </nav>
   <script src="js/highlight.pack.js"></script>
   <script src="js/slideshow.js"></script>

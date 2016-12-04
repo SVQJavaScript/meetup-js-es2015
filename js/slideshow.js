@@ -3,10 +3,16 @@
       currentSection;
 
   function init(){
-    currentSection = sections[0];
+    var currentIdx = 0;
+    if(location.hash.slice(1) !== ''){
+      currentSection = document.getElementById(location.hash.slice(1)) || sections[0];
+      currentIdx = [].indexOf.call(sections, currentSection);
+    }else{
+      currentSection = sections[0];
+    }
     currentSection.classList.add('current');
-    sections.forEach(function(val,key){
-      if(key > 0)
+    [].forEach.call(sections, function(val,key){
+      if(key > currentIdx)
         val.classList.add('next');
     });
 
@@ -31,6 +37,8 @@
         audio[0].play();
       },1000);
     }
+
+    _updateURL();
   }
 
   function previous(){
@@ -40,6 +48,8 @@
       prevSection.classList.add('current');
       currentSection = prevSection;
     }
+
+    _updateURL();
   }
 
   function _onkeypress(e){
@@ -47,6 +57,14 @@
       next();
     }else if (e.keyCode == '37') {
       previous();
+    }
+  }
+
+  function _updateURL(){
+    if(history.pushState) {
+      history.pushState(null, null, '#' + currentSection.id);
+    } else {
+      location.hash = currentSection.id;
     }
   }
 
