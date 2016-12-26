@@ -111,6 +111,10 @@ input { font-family: inherit; }
         visibility: hidden;
         animation: mainTitleAppear .5s ease-out 1s 1 forwards paused;
       }
+
+      .logo {
+        width: 200px;
+      }
     }
 
     article {
@@ -128,6 +132,10 @@ input { font-family: inherit; }
         &.center {
           text-align: center;
         }
+      }
+
+      a {
+        color: darken(@highlight, 10%);
       }
 
       ul {
@@ -169,6 +177,18 @@ input { font-family: inherit; }
         .break-before {
           -webkit-column-break-before: always;
           break-before: column;
+        }
+      }
+
+      .imageLink {
+        text-decoration: none;
+        color: @titleFg;
+
+        img {
+          height: 2em;
+          width: 2em;
+          border-radius: 50%;
+          vertical-align: middle;
         }
       }
     }

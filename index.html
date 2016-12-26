@@ -12,6 +12,7 @@
     <!-- <section></section> -->
     <section>
       <header class="big">
+        <span><img class="logo" src="img/svqjs.png" alt="SevillaJS"></span>
         <h1>JS.now</h1>
         <h2>Cómo aprovechar ES2015 hoy</h2>
       </header>
@@ -36,7 +37,7 @@
           <li>Nuevos tipos de dato (octal, binario,...) y funciones matemáticas</li>
           <li>Colecciones <em>(maps, sets, weak maps)</em></li>
           <li>Mejoras en procesamiento asíncrono <em>(promise)</em></li>
-          <li>Otros agregador y mejoras de <strong>sintaxis</strong>...</li>
+          <li>Otros agregados y mejoras de <strong>sintaxis</strong>...</li>
         </ul>
       </article>
       <footer></footer>
@@ -130,7 +131,10 @@ console.log(a);
         <audio src="metal_gear-alert.mp3"></audio>
         <p><strong>TDZ</strong> o <em>Temporal Dead Zone</em></p>
         <pre><code class="js">
-console.log(a);
+console.log(a); // Reference Error: a is not defined
+        </code></pre>
+        <pre><code class="js">
+console.log(a); // Undefined (se eleva su declaración, no su asignación)
 var a = 'Exterior';
         </code></pre>
         <pre><code class="js">
@@ -218,8 +222,10 @@ test();
         <p>La creación de textos con variables insertadas es una tarea que ya tenemos solucionada con la fea pero efectiva concatenación de variables y textos estáticos. Pero ahora podemos solucionarlo con un código más rápido de escribir y elegante mediante plantillas.</p>
         <pre><code class="js">
 let username = "Pepe";
+
 // Pre-ES2015
 console.log("¡Hola " + username + "!");
+
 // ES2015
 console.log(`¡Hola ${username}!`);
         </code></pre>
@@ -310,7 +316,7 @@ function cuadrado(x){
 function sumaCuadrado(a = 5, b = cuadrado(a)){
   return a + b;
 }
-sumaCuadrados(2);
+sumaCuadrado(2);
         </code></pre>
       </article>
     </section>
@@ -365,7 +371,6 @@ console.log(x, y, z); // 1 2 3
     <section id="destructuring2">
       <header><h3>Desestructuración. Objetos.</h3></header>
       <article>
-        <audio src="metal_gear-alert.mp3"></audio>
         <p>La función es muy similar usando objetos, pero ojo, <strong>la asignación está invertida</strong>.</p>
         <pre><code class="js">
 function foo() {
@@ -632,13 +637,13 @@ class ChildClass extends ParentClass {
         <p>La paradoja más conocida en JavaScript, los callbacks, es quizás la característica más potente y diferenciadora de este lenguaje; pero también es el <strong>Infierno de los Callbacks</strong> cuando necesitan anidarse en exceso.</p>
         <p>Aquí es donde las promesas (<em>promises</em>) vienen a mejorar un poco nuestra vida, convirtiendo esto:</p>
         <pre><code class="js">
-superWidgetWithCallbacks(param, function(error, result) {
+superWidgetConCallbacks(param, function(error, result) {
   if(error) { ... }
-  makeANetworkRequest(result, function(error, result) {
+  hazUnaPeticionDeRed(result, function(error, result) {
     if(error) { ... }
-    doSomethingHeavyForRendering(result, function(error, result) {
+    hazAlgoPesadoParaRenderizar(result, function(error, result) {
       if(error) { ... }
-      iFeelINeedAnotherNestedCallback(result, function(error, result) {
+      creoQueNecesitoOtroCallbackAnidado(result, function(error, result) {
         if(error) { ... }
         // ...
       });
@@ -652,10 +657,10 @@ superWidgetWithCallbacks(param, function(error, result) {
       <article>
         <p>... en esto:</p>
         <pre><code class="js">
-superWidgetWithCallbacks(param)
-  .then(makeANetworkRequest)
-  .then(doSomethingHeavyForRendering)
-  .then(iFeelINeedAnotherNestedCallback)
+superWidgetConCallbacks(param)
+  .then(hazUnaPeticionDeRed)
+  .then(hazAlgoPesadoParaRenderizar)
+  .then(creoQueNecesitoOtroCallbackAnidado)
   .catch(function(error) { ... });
         </code></pre>
         <p>Pero, <strong>¿qué es realmente una <em>promesa</em>?</strong></p>
@@ -730,9 +735,8 @@ Promise.race([promise1, promise2]).then(function(results) { ... })
         <h1>Gracias</h1>
         <h2></h2>
       </header>
-      <article class="columns-2">
-        <a href="https://meetup.com/Sevilla-js" target="_blank">Sevilla JS</a>
-        <a href="https://twitter.com/neokore" target="_blank">
+      <article>
+        <a class="imageLink" href="https://twitter.com/neokore" target="_blank">
           <img src="https://pbs.twimg.com/profile_images/378800000340009281/e35d535f175465085f31eb63e10a2895_400x400.jpeg">
           @neokore
         </a>
